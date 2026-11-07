@@ -1,7 +1,7 @@
 /* LULC Field Survey - offline-first mobile field app (PWA). ASCII only.
    Data stays on the device (IndexedDB) until exported, backed up or synchronised. */
 "use strict";
-var APP_VERSION = "1.0.0";
+var APP_VERSION = "1.0.1";
 var PKG = null, SET = {}, OBS = {}, OBS_ALL = [], DEVICE = null, CUR = null, VIEW = "dash";
 var GPS = {last: null, watch: null, err: null, listeners: []}, COMPASS = {heading: null, ms: 0};
 var FMAP = null, FL = {}, FOLLOW = false, INSTALL = null, SYNCING = false;
@@ -1024,7 +1024,7 @@ async function vSettings() {
   html += '<div class="card"><b>Reset</b><p class="muted" style="font-size:13px">Deletes all observations, photos and the package from this phone.</p><button class="btn bad block" id="btnReset">Reset survey data...</button></div>';
   H(html);
   $("pkgFile").onchange = async function () { var f = this.files[0]; if (!f) return; try { await loadPackage(JSON.parse(await f.text())); } catch (e) { toast("Could not read package: " + e.message, true); } };
-  if ($("btnDemo")) $("btnDemo").onclick = async function () { try { var r = await fetch("demo/demo_field_package.json"); await loadPackage(await r.json()); } catch (e) { toast("Demo package not available: " + e.message, true); } };
+  if ($("btnDemo")) $("btnDemo").onclick = async function () { try { var r = await fetch("demo_field_package.json"); await loadPackage(await r.json()); } catch (e) { toast("Demo package not available: " + e.message, true); } };
   $("sSurv").onchange = function () { SET.surveyor = this.value.trim(); saveSettings(); };
   $("sTeam").onchange = function () { SET.team = this.value; saveSettings(); };
   $("sGps").onchange = function () { SET.gps_seconds = Math.max(5, Math.min(120, Number(this.value) || 25)); saveSettings(); };

@@ -1,12 +1,9 @@
 /* Service worker: offline app shell + runtime cache of viewed map tiles. ASCII only. */
-var VERSION = "lulc-field-v1.0.0";
+var VERSION = "lulc-field-v1.0.1";
 var TILES = "lulc-tiles-v1";
 var MAX_TILES = 6000;
-var SHELL = ["./", "index.html", "app.js", "app.css", "manifest.webmanifest",
-  "vendor/leaflet/leaflet.js", "vendor/leaflet/leaflet.css", "vendor/leaflet/images/layers.png",
-  "vendor/leaflet/images/layers-2x.png", "vendor/leaflet/images/marker-icon.png",
-  "vendor/leaflet/images/marker-icon-2x.png", "vendor/leaflet/images/marker-shadow.png",
-  "vendor/jszip.min.js", "icons/icon-192.png", "icons/icon-512.png", "demo/demo_field_package.json"];
+var SHELL = ["./", "index.html", "app.js", "app.css", "manifest.webmanifest", "leaflet.js", "leaflet.css",
+  "jszip.min.js", "icon-192.png", "icon-512.png", "demo_field_package.json"];
 var TILE_HOSTS = ["tile.openstreetmap.org", "server.arcgisonline.com"];
 var puts = 0;
 
