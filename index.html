@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f5d50">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>LULC Field Survey</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="bar">
+  <div class="title" id="hdrTitle">LULC Field Survey</div>
+  <div class="chips">
+    <span class="chip" id="chipGps" title="GPS">GPS -</span>
+    <span class="chip" id="chipSync" title="Unsynced records">0 unsaved</span>
+  </div>
+</header>
+<div id="demoBar" class="demo hidden">DEMO DATA - synthetic, for practice only</div>
+<main id="view"></main>
+<div id="mapView" class="mapview hidden">
+  <div id="fmap"></div>
+  <div class="map-btns">
+    <button class="fab" id="btnLocate" title="My location">&#9678;</button>
+    <button class="fab" id="btnFollow" title="Follow me">&#10148;</button>
+    <button class="fab" id="btnBase" title="Basemap">&#9638;</button>
+  </div>
+</div>
+<div id="sheet" class="sheet hidden"><div class="sheet-handle"></div><div id="sheetBody"></div></div>
+<nav class="nav" id="nav">
+  <button data-v="dash"><span>&#8962;</span>Home</button>
+  <button data-v="map"><span>&#9673;</span>Map</button>
+  <button data-v="day1"><span>1</span>Day 1</button>
+  <button data-v="day2"><span>2</span>Day 2</button>
+  <button data-v="pending"><span>&#9776;</span>Pending</button>
+  <button data-v="more"><span>&#8943;</span>More</button>
+</nav>
+<div id="dlg" class="dlg hidden"><div class="dlg-box" id="dlgBox"></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
