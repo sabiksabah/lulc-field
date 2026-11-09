@@ -1,5 +1,5 @@
 /* Service worker: offline app shell + runtime cache of viewed map tiles. ASCII only. */
-var VERSION = "lulc-field-v1.0.1";
+var VERSION = "lulc-field-v1.1.0";
 var TILES = "lulc-tiles-v1";
 var MAX_TILES = 6000;
 var SHELL = ["./", "index.html", "app.js", "app.css", "manifest.webmanifest", "leaflet.js", "leaflet.css",
@@ -8,7 +8,7 @@ var TILE_HOSTS = ["tile.openstreetmap.org", "server.arcgisonline.com"];
 var puts = 0;
 
 self.addEventListener("install", function (e) {
-  e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
+  e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(SHELL.map(function (u) { return new Request(u, {cache: "reload"}); })); }).then(function () { return self.skipWaiting(); }));
 });
 self.addEventListener("activate", function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
